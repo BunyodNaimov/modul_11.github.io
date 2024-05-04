@@ -19,3 +19,7 @@ body {
 .item {
     text-align: center;
 }
+.btn {
+    background: yellow;
+    color: red;
+}
