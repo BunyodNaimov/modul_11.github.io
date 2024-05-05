@@ -12,6 +12,8 @@ async def start(msg: types.Message):
     await msg.answer("Salom", reply_markup=app_kb)
 
 
-@dp.message(F.content_type.in_(ContentType.WEB_APP_DATA, ))
+@dp.message(F)
 async def say(msg: types.Message):
+    print(msg)
+    print('hello')
     await msg.answer(msg.web_app_data.data)

@@ -10,6 +10,9 @@ let btn = document.getElementById('btn')
 btn.addEventListener("click", function () {
     tg.MainButton.setText("SMS jo'natildi");
     tg.MainButton.show();
-    tg.SendData("TestMessage");
 
+})
+
+Telegram.WebApp.onEvent("mainButtonClicked", function () {
+    tg.sendData("TestMessage");
 })
