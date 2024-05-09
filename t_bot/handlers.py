@@ -13,7 +13,6 @@ async def start(msg: types.Message):
     await msg.answer("Salom", reply_markup=app_kb)
 
 
-@dp.message(F)
+@dp.message(F.func(lambda msg: msg.web_app_data.data))
 async def get_btn(msg: types.Message):
-    print(F.func(lambda msg: msg.web_app_data.data))
     await msg.answer(msg.web_app_data.data)
