@@ -10,10 +10,11 @@ let btn3 = document.getElementById("btn3");
 let btn4 = document.getElementById("btn4");
 
 let item = " "
+let num = 1
 
 
 btn1.addEventListener("click", function () {
-    tg.MainButton.setText("Burger");
+    tg.MainButton.setText("Burger "+ num);
     item = "Burger/3$";
     tg.MainButton.show();
 });
