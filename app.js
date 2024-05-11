@@ -22,7 +22,7 @@ abtn1.addEventListener("click", function () {
     count1.style.display = "inline-block";
     tg.MainButton.setText("Burger");
     tg.MainButton.show();
-    item = "Burger/"+count1;
+    item = "Burger/"+count1.innerText;
 
 })
 rbtn1.addEventListener("click", function () {
