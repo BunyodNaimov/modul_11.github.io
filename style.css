@@ -34,5 +34,8 @@ body {
 	transition: background .2s linear;
 }
 
+.num{
+    display: none;
+}
 
 
