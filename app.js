@@ -12,26 +12,24 @@ let btn4 = document.getElementById("btn4");
 let item = " "
 
 
-
-
 btn1.addEventListener("click", function () {
-    tg.MainButton.setText("btn1 bosildi");
-    item = "button1 bosildi";
+    tg.MainButton.setText("Burger");
+    item = "Burger/3$";
     tg.MainButton.show();
 });
 btn2.addEventListener("click", function () {
-    tg.MainButton.setText("btn2 bosildi");
-    item = "button2 bosildi";
+    tg.MainButton.setText("KFC");
+    item = "KFC/10$";
     tg.MainButton.show();
 });
 btn3.addEventListener("click", function () {
-    tg.MainButton.setText("btn3 bosildi");
-    item = "button3 bosildi";
+    tg.MainButton.setText("LAVASH");
+    item = "LAVASH/4$";
     tg.MainButton.show();
 });
 btn4.addEventListener("click", function () {
-    tg.MainButton.setText("btn4 bosildi");
-    item = "button4 bosildi";
+    tg.MainButton.setText("Pizza");
+    item = "Pizza/5$";
 
     tg.MainButton.show();
 });
