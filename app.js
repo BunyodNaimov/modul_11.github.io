@@ -20,15 +20,15 @@ count4 = document.getElementById("count4");
 abtn1.addEventListener("click", function () {
     count1.innerText = n_count1 += 1;
     count1.style.display = "inline-block";
-    tg.MainButton.setText("Burger")
-    tg.MainButton.show()
-    item = "Burger/"+count1
+    tg.MainButton.setText("Burger");
+    tg.MainButton.show();
+    item = "Burger/"+count1;
 
 })
 rbtn1.addEventListener("click", function () {
     count1.innerText = n_count1 -= 1;
     count1.style.display = "inline-block";
-    item = "Burger/"+count1
+    item = "Burger/"+count1;
 })
 
 
