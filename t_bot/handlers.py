@@ -16,9 +16,13 @@ async def start(msg: types.Message):
 @dp.message(F.func(lambda msg: msg.web_app_data.data))
 async def get_btn(msg: types.Message):
     text = msg.web_app_data.data
-    title = text.split('/')[0]
-    price = int(text.split('/')[1])
-    quantity = int(text.split('/')[2])
+    products = text.split("|")
+    print(products)
+    for i in range(len(products)):
+        print(products[i])
+    title = products[0].split('/')[0]
+    price = int(products[0].split('/')[1])
+    quantity = int(products[0].split('/')[2])
     await msg.answer(text=f"Nomi: {title}\n"
                           f"Narxi: {price}"
                           f"Soni: {quantity}\n"

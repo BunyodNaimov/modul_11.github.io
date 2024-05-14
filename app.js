@@ -10,7 +10,7 @@ let item1 = " "
 let n_count1 = 0
 
 
-count1 = document.getElementById("count1");
+let count1 = document.getElementById("count1");
 let rbtn1 = document.getElementById("rbtn1");
 let abtn1 = document.getElementById("abtn1");
 
@@ -44,6 +44,7 @@ rbtn2.addEventListener("click", function () {
     }
 
     count2.style.display = "inline-block";
+    item2 = "KFC/10/" + count2;
     tg.MainButton.setText("KFC");
     tg.MainButton.show();
 });
@@ -53,6 +54,7 @@ rbtn2.addEventListener("click", function () {
 abtn2.addEventListener("click", function (){
     count2.innerText = n_count2 += 1;
     count2.style.display = "inline-block";
+    item2 = "KFC/10/" + count2;
     tg.MainButton.setText("KFC");
     tg.MainButton.show();
 });
@@ -70,6 +72,8 @@ rbtn3.addEventListener("click", function () {
     }
 
     count3.style.display = "inline-block";
+    item3 = "LAVASH/4/" + count3;
+
     tg.MainButton.setText("LAVASH");
     tg.MainButton.show();
 });
@@ -79,6 +83,7 @@ rbtn3.addEventListener("click", function () {
 abtn3.addEventListener("click", function (){
     count3.innerText = n_count3 += 1;
     count3.style.display = "inline-block";
+    item3 = "LAVASH/4/" + count3;
     tg.MainButton.setText("LAVASH");
     tg.MainButton.show();
 });
@@ -96,6 +101,8 @@ rbtn4.addEventListener("click", function () {
     }
 
     count4.style.display = "inline-block";
+    item4 = "PIZZA/5/" + count4;
+
     tg.MainButton.setText("PIZZA");
     tg.MainButton.show();
 });
@@ -105,6 +112,8 @@ rbtn4.addEventListener("click", function () {
 abtn4.addEventListener("click", function (){
     count4.innerText = n_count4 += 1;
     count4.style.display = "inline-block";
+    item4 = "PIZZA/5/" + count4;
+
     tg.MainButton.setText("PIZZA");
     tg.MainButton.show();
 });
