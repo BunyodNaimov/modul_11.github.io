@@ -19,7 +19,7 @@ abtn1.addEventListener("click", function () {
     count1.style.display = "inline-block";
     tg.MainButton.setText("Burger");
     tg.MainButton.show();
-    item = "Burger/3/" + count1.innerText;
+    item1 = "Burger/3/" + count1.innerText;
 
 });
 rbtn1.addEventListener("click", function () {
@@ -27,7 +27,7 @@ rbtn1.addEventListener("click", function () {
         count1.innerText = n_count1 -= 1;
     }
     count1.style.display = "inline-block";
-    item = "Burger/3/" + count1;
+    item1 = "Burger/3/" + count1;
     tg.MainButton.setText("Burger");
     tg.MainButton.show();
 });
@@ -112,6 +112,6 @@ abtn4.addEventListener("click", function (){
 
 
 Telegram.WebApp.onEvent("mainButtonClicked", function () {
-    tg.sendData(item);
+    tg.sendData(item1 + "|" + item2 +  "|" + item3 + "|" + item4);
 });
 

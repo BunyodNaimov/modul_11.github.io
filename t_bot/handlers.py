@@ -20,5 +20,6 @@ async def get_btn(msg: types.Message):
     price = int(text.split('/')[1])
     quantity = int(text.split('/')[2])
     await msg.answer(text=f"Nomi: {title}\n"
+                          f"Narxi: {price}"
                           f"Soni: {quantity}\n"
                           f"Umumiy narxi: {quantity * price}$")
