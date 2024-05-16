@@ -18,14 +18,13 @@ async def get_btn(msg: types.Message):
     summa = 0
     print(products)
     for i in range(len(products)):
-        if products[i].split("/"):
-            print(products[i].split("/"))
-        title = products[i].split('/')[0]
-        price = int(products[i].split('/')[1])
-        quantity = int(products[i].split('/')[2])
-        await msg.answer(text=f"Nomi: {title}\n"
-                              f"Narxi: {price}\n"
-                              f"Soni: {quantity}\n"
-                              f"Umumiy narxi: {quantity * price}$")
-        summa += price * quantity
+        if len(products[i].split("/")) >= 3:
+            title = products[i].split('/')[0]
+            price = int(products[i].split('/')[1])
+            quantity = int(products[i].split('/')[2])
+            await msg.answer(text=f"Nomi: {title}\n"
+                                  f"Narxi: {price}\n"
+                                  f"Soni: {quantity}\n"
+                                  f"Umumiy narxi: {quantity * price}$")
+            summa += price * quantity
     await msg.answer(text=f"To'lanishi kerak: {summa}$", reply_markup=buy_ikb)
