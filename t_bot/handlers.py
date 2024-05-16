@@ -16,7 +16,6 @@ async def get_btn(msg: types.Message):
     text = msg.web_app_data.data
     products = text.split("|")
     summa = 0
-    print(products)
     for i in range(len(products)):
         if len(products[i].split("/")) >= 3:
             title = products[i].split('/')[0]
