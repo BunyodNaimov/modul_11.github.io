@@ -6,7 +6,7 @@ tg.MainButton.color = "#FC3005"
 
 // -----------------------1--------------------------
 
-let item1 = " "
+let item1 = ""
 let n_count1 = 0
 
 
@@ -36,7 +36,7 @@ rbtn1.addEventListener("click", function () {
 count2 = document.getElementById("count2");
 rbtn2 = document.getElementById("rbtn2");
 abtn2 = document.getElementById("abtn2");
-let item2 = " ";
+let item2 = "";
 let n_count2 = 0;
 rbtn2.addEventListener("click", function () {
     if (n_count2 > 0) {
@@ -64,7 +64,7 @@ abtn2.addEventListener("click", function (){
 count3 = document.getElementById("count3");
 rbtn3 = document.getElementById("rbtn3");
 abtn3 = document.getElementById("abtn3");
-let item3 = " ";
+let item3 = "";
 let n_count3 = 0;
 rbtn3.addEventListener("click", function () {
     if (n_count3 > 0) {
@@ -93,7 +93,7 @@ abtn3.addEventListener("click", function (){
 count4 = document.getElementById("count4");
 rbtn4 = document.getElementById("rbtn4");
 abtn4 = document.getElementById("abtn4");
-let item4 = " ";
+let item4 = "";
 let n_count4 = 0;
 rbtn4.addEventListener("click", function () {
     if (n_count4 > 0) {
