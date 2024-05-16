@@ -1,18 +1,46 @@
-from aiogram import Dispatcher, types, F
-from aiogram.filters import CommandStart
-
+import os
+from aiogram import Dispatcher, F, Bot
+from aiogram.filters import CommandStart, Command
+from aiogram.types import Message, LabeledPrice, PreCheckoutQuery
 from keyboards import app_kb, buy_ikb
+from dotenv import load_dotenv
 
+load_dotenv()
+PROVIDER_TOKEN = os.getenv('PROVIDER_TOKEN')
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+
+bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
 
 @dp.message(CommandStart())
-async def start(msg: types.Message):
+async def start(msg: Message):
     await msg.answer("Salom", reply_markup=app_kb)
 
 
+@dp.message(Command("pay"))
+async def order(msg: Message):
+    await bot.send_invoice(
+        chat_id=msg.chat.id,
+        title="Telegram bot orqali to'lov!",
+        description="Telegram bot orqali to'lov qilishni o'rganyammiz!",
+        provider_token=PROVIDER_TOKEN,
+        currency="RUB",
+        payload="Ichki malumot",  # Foydalanuvchiga ko'rinmiydi
+        prices=[
+            LabeledPrice(label="skidka", amount=2),
+            LabeledPrice(label="Bonus", amount=1)
+        ]
+    )
+
+
+async def pre_checkout(pre_checkout_query: PreCheckoutQuery, bot: Bot):
+    await bot.answer_pre_checkout_query(pre_checkout_query.id, ok=True)
+
+
 @dp.message(F.func(lambda msg: msg.web_app_data.data))
-async def get_btn(msg: types.Message):
+async def get_btn(msg: Message):
     text = msg.web_app_data.data
     products = text.split("|")
     summa = 0
