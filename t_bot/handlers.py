@@ -26,17 +26,18 @@ async def order(msg: Message):
         title="Telegram bot orqali to'lov!",
         description="Telegram bot orqali to'lov qilishni o'rganyammiz!",
         provider_token=PROVIDER_TOKEN,
-        currency="RUB",
-        payload="Ichki malumot",  # Foydalanuvchiga ko'rinmiydi
+        currency="UZS",
+        payload="Ichki malumot",
         prices=[
-            LabeledPrice(label="skidka", amount=2),
-            LabeledPrice(label="Bonus", amount=1)
-        ]
+            LabeledPrice(label="Product1", amount=200000),
+            LabeledPrice(label="Product2", amount=100000)
+        ],
     )
 
 
-async def pre_checkout(pre_checkout_query: PreCheckoutQuery, bot: Bot):
-    await bot.answer_pre_checkout_query(pre_checkout_query.id, ok=True)
+@dp.pre_checkout_query()
+async def pre_checkout_query(checkout_query: PreCheckoutQuery):
+    await bot.answer_pre_checkout_query(checkout_query.id, ok=True)
 
 
 @dp.message(F.func(lambda msg: msg.web_app_data.data))
@@ -55,3 +56,4 @@ async def get_btn(msg: Message):
                                   f"Umumiy narxi: {quantity * price}$")
             summa += price * quantity
     await msg.answer(text=f"To'lanishi kerak: {summa}$", reply_markup=buy_ikb)
+
