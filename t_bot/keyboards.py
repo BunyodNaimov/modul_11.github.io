@@ -7,5 +7,5 @@ app_kb = ReplyKeyboardMarkup(keyboard=[
 ], resize_keyboard=True)
 
 buy_ikb = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text="To'lov", callback_data='/pay')],
+    [InlineKeyboardButton(text="To'lov", callback_data='pay')],
 ])
