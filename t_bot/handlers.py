@@ -43,17 +43,45 @@ async def pre_checkout_query(checkout_query: PreCheckoutQuery):
 @dp.message(F.func(lambda msg: msg.web_app_data.data))
 async def get_btn(msg: Message):
     text = msg.web_app_data.data
-    products = text.split("|")
-    summa = 0
-    for i in range(len(products)):
-        if len(products[i].split("/")) >= 3:
-            title = products[i].split('/')[0]
-            price = int(products[i].split('/')[1])
-            quantity = int(products[i].split('/')[2])
-            await msg.answer(text=f"Nomi: {title}\n"
-                                  f"Narxi: {price}\n"
-                                  f"Soni: {quantity}\n"
-                                  f"Umumiy narxi: {quantity * price}$")
-            summa += price * quantity
-    await msg.answer(text=f"To'lanishi kerak: {summa}$", reply_markup=buy_ikb)
+    product_data = text.split("|")
+    products = {}
+    for i in range(len(product_data)):
+        if len(product_data[i].split("/")) >= 3:
+            title = product_data[i].split('/')[0]
+            price = product_data[i].split('/')[1]
+            quantity = int(product_data[i].split('/')[2])
+            product = {
+                "Nomi": title,
+                "Price": int(price),
+                "Quantity": int(quantity)
+            }
+            products[i] = product
+    await bot.send_invoice(
+        chat_id=msg.chat.id,
+        title="To'lov",
+        description="Telegram bot orqali to'lov!",
+        provider_token=PROVIDER_TOKEN,
+        currency="UZS",
+        payload="Ichki malumot",
+        prices=[LabeledPrice(
+            label=f"{product['Nomi']} ({product['Quantity']})",
+            amount=product["Price"] * product["Quantity"] * 100
+        ) for product in products.values()]
+    ),
 
+    # @dp.message(F.func(lambda msg: msg.web_app_data.data))
+    # async def get_btn(msg: Message):
+    #     text = msg.web_app_data.data
+    #     products = text.split("|")
+    #     summa = 0
+    #     for i in range(len(products)):
+    #         if len(products[i].split("/")) >= 3:
+    #             title = products[i].split('/')[0]
+    #             price = int(products[i].split('/')[1])
+    #             quantity = int(products[i].split('/')[2])
+    #             await msg.answer(text=f"Nomi: {title}\n"
+    #                                   f"Narxi: {price}\n"
+    #                                   f"Soni: {quantity}\n"
+    #                                   f"Umumiy narxi: {quantity * price}$")
+    #             summa += price * quantity
+    #     await msg.answer(text=f"To'lanishi kerak: {summa}$", reply_markup=buy_ikb)
