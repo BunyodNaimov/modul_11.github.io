@@ -44,7 +44,7 @@ rbtn2.addEventListener("click", function () {
     }
 
     count2.style.display = "inline-block";
-    item2 = "KFC/100000/" + count2.innerText;
+    item2 = "KFC/120000/" + count2.innerText;
     tg.MainButton.setText("KFC");
     tg.MainButton.show();
 });
@@ -53,7 +53,7 @@ rbtn2.addEventListener("click", function () {
 abtn2.addEventListener("click", function () {
     count2.innerText = n_count2 += 1;
     count2.style.display = "inline-block";
-    item2 = "KFC/100000/" + count2.innerText;
+    item2 = "KFC/120000/" + count2.innerText;
     tg.MainButton.setText("KFC");
     tg.MainButton.show();
 });
