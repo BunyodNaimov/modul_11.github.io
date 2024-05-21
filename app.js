@@ -17,7 +17,7 @@ let abtn1 = document.getElementById("abtn1");
 abtn1.addEventListener("click", function () {
     count1.innerText = n_count1 += 1;
     count1.style.display = "inline-block";
-    tg.MainButton.setText("Burger");
+    tg.MainButton.setText("Оплата");
     tg.MainButton.show();
     item1 = "Burger/12000/" + count1.innerText;
 
@@ -28,7 +28,7 @@ rbtn1.addEventListener("click", function () {
     }
     count1.style.display = "inline-block";
     item1 = "Burger/12000/" + count1.innerText;
-    tg.MainButton.setText("Burger");
+    tg.MainButton.setText("Оплата");
     tg.MainButton.show();
 });
 // ------------------2--------------------
@@ -45,7 +45,7 @@ rbtn2.addEventListener("click", function () {
 
     count2.style.display = "inline-block";
     item2 = "KFC/120000/" + count2.innerText;
-    tg.MainButton.setText("KFC");
+    tg.MainButton.setText("Оплата");
     tg.MainButton.show();
 });
 
@@ -54,7 +54,7 @@ abtn2.addEventListener("click", function () {
     count2.innerText = n_count2 += 1;
     count2.style.display = "inline-block";
     item2 = "KFC/120000/" + count2.innerText;
-    tg.MainButton.setText("KFC");
+    tg.MainButton.setText("Оплата");
     tg.MainButton.show();
 });
 
@@ -73,7 +73,7 @@ rbtn3.addEventListener("click", function () {
     count3.style.display = "inline-block";
     item3 = "LAVASH/40000/" + count3.innerText;
 
-    tg.MainButton.setText("LAVASH");
+    tg.MainButton.setText("Оплата");
     tg.MainButton.show();
 });
 
@@ -82,7 +82,7 @@ abtn3.addEventListener("click", function () {
     count3.innerText = n_count3 += 1;
     count3.style.display = "inline-block";
     item3 = "LAVASH/40000/" + count3.innerText;
-    tg.MainButton.setText("LAVASH");
+    tg.MainButton.setText("Оплата");
     tg.MainButton.show();
 });
 
@@ -101,7 +101,7 @@ rbtn4.addEventListener("click", function () {
     count4.style.display = "inline-block";
     item4 = "PIZZA/50000/" + count4.innerText;
 
-    tg.MainButton.setText("PIZZA");
+    tg.MainButton.setText("Оплата");
     tg.MainButton.show();
 });
 
@@ -111,7 +111,7 @@ abtn4.addEventListener("click", function () {
     count4.style.display = "inline-block";
     item4 = "PIZZA/50000/" + count4.innerText;
 
-    tg.MainButton.setText("PIZZA");
+    tg.MainButton.setText("Оплата");
     tg.MainButton.show();
 });
 
