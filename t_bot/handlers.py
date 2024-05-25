@@ -1,9 +1,12 @@
 import os
 from aiogram import Dispatcher, F, Bot
 from aiogram.filters import CommandStart, Command
-from aiogram.types import Message, LabeledPrice, PreCheckoutQuery
+from aiogram.types import Message, LabeledPrice, PreCheckoutQuery, InputFile
 from keyboards import app_kb, buy_ikb
 from dotenv import load_dotenv
+
+from PIL import Image, ImageDraw, ImageFont
+from io import BytesIO
 
 load_dotenv()
 PROVIDER_TOKEN = os.getenv('PROVIDER_TOKEN')
@@ -45,7 +48,11 @@ async def get_btn(msg: Message):
         payload="Ichki malumot",
         prices=[LabeledPrice(label=f"{product["title"]}({product["quantity"]})",
                              amount=(product["price"] * product["quantity"]) * 100)
-                for product in products.values()],)
+                for product in products.values()],
+        max_tip_amount=500000,
+        suggested_tip_amounts=[10000, 30000, 50000, 60000]  # Chayeviy
+
+    )
 
 
 @dp.pre_checkout_query()
@@ -55,4 +62,5 @@ async def pre_checkout(query: PreCheckoutQuery):
 
 @dp.message(F.func(lambda msg: msg.successful_payment if msg.successful_payment else None))
 async def successful_payment(msg: Message):
+    print(msg.successful_payment)
     await msg.answer("To'lov uchun raxmat!")
