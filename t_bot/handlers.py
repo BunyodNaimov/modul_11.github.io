@@ -1,12 +1,9 @@
 import os
 from aiogram import Dispatcher, F, Bot
-from aiogram.filters import CommandStart, Command
-from aiogram.types import Message, LabeledPrice, PreCheckoutQuery, InputFile
-from keyboards import app_kb, buy_ikb
+from aiogram.filters import CommandStart
+from aiogram.types import Message, LabeledPrice, PreCheckoutQuery
+from keyboards import app_kb
 from dotenv import load_dotenv
-
-from PIL import Image, ImageDraw, ImageFont
-from io import BytesIO
 
 load_dotenv()
 PROVIDER_TOKEN = os.getenv('PROVIDER_TOKEN')
@@ -24,6 +21,7 @@ async def start(msg: Message):
 
 @dp.message(F.func(lambda msg: msg.web_app_data.data if msg.web_app_data else None))
 async def get_btn(msg: Message):
+    print(msg.chat.full_name, msg.chat.username)
     text = msg.web_app_data.data
     product_data = text.split("|")
     products = {}
@@ -38,10 +36,11 @@ async def get_btn(msg: Message):
                 "quantity": int(quantity)
             }
             products[i] = product
-    print(products)
     await bot.send_invoice(
         chat_id=msg.chat.id,
         title="Оплата",
+        need_name=True,
+        need_phone_number=True,
         description="Оплата через Telegram bot",
         provider_token=PROVIDER_TOKEN,
         currency="UZS",
@@ -50,8 +49,8 @@ async def get_btn(msg: Message):
                              amount=(product["price"] * product["quantity"]) * 100)
                 for product in products.values()],
         max_tip_amount=50000000,  # Chayeviy
-        suggested_tip_amounts=[100000, 300000, 500000, 600000]  # Chayeviy
-
+        suggested_tip_amounts=[100000, 300000, 500000, 600000],  # Chayeviy
+        need_shipping_address=True
     )
 
 
